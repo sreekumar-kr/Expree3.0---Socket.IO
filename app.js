@@ -1,7 +1,6 @@
 var express = require('express');
 var app = express.createServer();
 var socket = require('socket.io');
-var app =  express.createServer();
 app.configure(function(){
   app.use(express.static(__dirname + '/'));
 });
