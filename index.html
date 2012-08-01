@@ -1,0 +1,18 @@
+<h1>Express 3.0 + Socket.IO</h1>
+<input id="button" type="button" value="Ping server"/>
+<hr>
+<div id="msgbox"></div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io.connect('http://localhost:8080');
+  socket.on("pong",function(data){
+  	$("#msgbox").append(data.txt+"<br>");
+  });
+  
+  $("#button").click(function(){
+    	$("#msgbox").append("Ping server<br>");
+    	socket.emit("ping",{txt:"this is a message from client" });
+  });
+</script>
+
